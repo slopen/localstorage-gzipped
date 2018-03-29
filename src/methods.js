@@ -8,7 +8,7 @@ import type {
 type MethodsMap = {
     [key: MethodName]: {
         compress: Method,
-        decompress: Method,
+        decompress: Method
     }
 };
 

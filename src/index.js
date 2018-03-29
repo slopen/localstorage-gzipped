@@ -83,13 +83,13 @@ export default class GZLocalStorage
 
         const data: ?string = eData.data;
         const error: ?string = eData.error;
-        const sub: Row = this.rows [key];
+        const row: Row = this.rows [key];
 
-        if (sub) {
-            if (error && sub.reject) {
-                sub.reject (error);
-            } else if (sub.resolve) {
-                sub.resolve (data);
+        if (row) {
+            if (error && row.reject) {
+                row.reject (error);
+            } else if (row.resolve) {
+                row.resolve (data);
             }
 
             delete this.rows [key];
