@@ -1,0 +1,62 @@
+{
+  "name": "localstorage-gzipped",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "author": "Danil <kostrov@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --config scripts/webpack/config.js --hot --content-base build",
+    "build:dev": "NODE_ENV=development webpack --config scripts/webpack/config.js -d",
+    "build:production": "NODE_ENV=production webpack --config scripts/webpack/config.js -d",
+    "lint": "eslint src",
+    "test:flow": "flow check --show-all-errors src",
+    "coverage:flow": "flow-coverage-report"
+  },
+  "pre-commit": {
+    "run": [
+      "lint",
+      "test:flow"
+    ],
+    "colors": false,
+    "silent": false
+  },
+  "flow-coverage-report": {
+    "includeGlob": [
+      "src/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-flow-runtime": "^0.17.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-async-await": "^0.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.11",
+    "flow-bin": "^0.69.0",
+    "flow-coverage-report": "^0.5.0",
+    "flow-runtime": "^0.17.0",
+    "flow-runtime-validators": "^0.17.0",
+    "jest": "^22.4.3",
+    "pre-commit": "^1.2.2",
+    "process-env": "^1.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "lz-string": "^1.4.4"
+  }
+}
