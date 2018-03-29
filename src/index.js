@@ -139,7 +139,7 @@ export default class GZLocalStorage
             });
     }
 
-    getItem (key: string) {
+    getItem (key: string): Promise <?string> {
         return this.decompress (key, this.storage.getItem (key) || '');
     }
 
